@@ -32,12 +32,16 @@ local fullSize = UDim2.new(0, 260, 0, 420)
 
 MinimizeButton.MouseButton1Click:Connect(function()
 	minimized = not minimized
+	for _, obj in pairs(Frame:GetChildren()) do
+		if obj ~= Title and obj ~= MinimizeButton then
+			obj.Visible = not minimized
+		end
+	end
 	if minimized then
 		Frame.Size = UDim2.new(0, 260, 0, 35)
 	else
 		Frame.Size = fullSize
-	end
-end)
+	e
 
 FarmTab.Parent = Frame
 FarmTab.Size = UDim2.new(0, 220, 0, 30)
